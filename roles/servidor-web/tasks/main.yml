@@ -1,0 +1,8 @@
+---
+# tasks file for servidor-web
+
+- name: instalando servidor web debian
+  include: debian.yaml
+
+- name: instalando servidor web centos
+  include: centos.yaml

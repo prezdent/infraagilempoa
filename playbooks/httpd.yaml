@@ -1,0 +1,16 @@
+---
+- name: exemplo de operador condicional  
+  hosts: all
+  tasks:
+    - name: testando o arquivo do profile
+      command: "test -f /etc/profile.d/dexter"
+      register: result
+      ignore_errors: yes
+
+#    - name: valor de variaveis
+#      debug:
+#        var: result
+
+    - name: configurando a variavel com condicao
+      shell: "echo sou devops > /etc/profile.d/dexter"
+      when: result.rc == 0

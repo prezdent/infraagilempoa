@@ -1,0 +1,13 @@
+--- 
+- name: minha segunda playbook
+  hosts: all
+  tasks:
+    - name: adicionando usuarios
+      user:
+        name: "{{ item }}"
+        password: '$1$OXQK1oGt$6kq4eZtcJH7Yp5dfJrIY1/'
+        shell: /bin/bash
+      with_items:
+        - devops
+        - developer
+        - rafael_rosa

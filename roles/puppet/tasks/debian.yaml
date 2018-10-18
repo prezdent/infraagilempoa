@@ -1,0 +1,10 @@
+---
+tasks:
+  - name: Install a .deb package from the internet.
+    apt:
+      deb: https://apt.puppetlabs.com/puppet5-release-xenial.deb
+
+  - name: Install puppet-agent
+    apt:
+    name: puppet-agent
+    state: present

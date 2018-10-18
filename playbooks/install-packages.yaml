@@ -1,0 +1,28 @@
+--- 
+- name: instalado pacotes
+  hosts: all
+  tasks:
+    - name: instalando packages debian
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - vim
+        - htop
+        - cowsay
+        - figlet
+        - apache2
+      when: ansible_os_family == "Debian"
+
+    - name: instalando packages RedHat
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - epel-release
+        - htop
+        - vim
+        - cowsay
+        - figlet
+        - httpd
+      when: ansible_os_family == "RedHat"

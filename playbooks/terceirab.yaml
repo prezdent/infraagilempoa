@@ -1,0 +1,31 @@
+--- 
+- name: adicionando pacotes
+  hosts: all
+  tasks:
+    - name: instalando o vim
+      package:
+        name: 
+          - vim
+          - cowsay
+          - htop
+          - httpd
+        state: present
+        cache_update: yes
+
+    - name: enviando um arquivo
+      copy:
+        src: /etc/hosts
+        dest: /etc/hosts
+
+    - name: garantindo uma linha no etchosts
+      lineinfile:
+        path: /etc/hosts
+        line: '192.168.200.1 desktop'
+
+    - name: garantindo um bloco de configuracao
+      blockinfile:
+        path: /etc/hosts
+        block: |
+          192.168.0.10 desktop1
+          91.2168.0.11 desktop2
+

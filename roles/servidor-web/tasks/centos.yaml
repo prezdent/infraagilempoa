@@ -1,0 +1,13 @@
+---
+- name: garantindo o apache instalado
+  package:
+    name: httpd
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: restart do apache centos
+  template:
+    src: index.html
+    dest: /var/www/html/index.html
+  notify: restart apache centos
+

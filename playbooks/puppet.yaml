@@ -1,0 +1,5 @@
+---
+- name: instalador puppet
+  hosts: all
+  roles:
+    - puppet

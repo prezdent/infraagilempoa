@@ -1,0 +1,12 @@
+---
+- name: garantindo o apache instalado
+  package:
+    name: apache2
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: restart do apache debian
+  template:
+    src: index.html
+    dest: /var/www/html/index.html
+  notify: restart apache debian
